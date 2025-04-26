@@ -18,14 +18,18 @@
       </section>
 
       <section class="info-section">
+        <!-- 这里加了 id="about-me-card"，保持原样 -->
         <div class="info-card" id="about-me-card">
           <h2>关于我</h2>
           <p>大家好，我是练习时长两年半的个人练习生</p>
           <button class="read-more-btn">查看更多</button>
         </div>
-        <div class="info-card">
+
+        <!-- 给特长卡片加上 id="skills-card" -->
+        <div class="info-card" id="skills-card">
           <h2>特长</h2>
           <p>唱、跳、rap、篮球</p>
+          <button class="read-more-btn">查看更多</button>
         </div>
       </section>
 
@@ -42,6 +46,7 @@
       <p>© 2024 坤坤的主页</p>
     </footer>
 
+    <!-- 这是原本的关于我模态框 -->
     <div class="modal" id="about-modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -77,6 +82,23 @@
               <p>热爱音乐和篮球</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="skills-modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>坤坤打篮球 & 鸡你太美</h2>
+        <div class="modal-body">
+          <img
+            src="images/your-animation.gif"
+            alt="坤坤打篮球"
+            style="width: 100%; border-radius: 10px; margin-bottom: 20px"
+          />
+          <audio controls style="width: 100%">
+            <source src="audio/jinitaimei.mp3" type="audio/mpeg" />
+          </audio>
         </div>
       </div>
     </div>
