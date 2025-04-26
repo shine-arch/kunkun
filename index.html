@@ -18,9 +18,10 @@
       </section>
 
       <section class="info-section">
-        <div class="info-card">
+        <div class="info-card" id="about-me-card">
           <h2>关于我</h2>
           <p>大家好，我是练习时长两年半的个人练习生</p>
+          <button class="read-more-btn">查看更多</button>
         </div>
         <div class="info-card">
           <h2>特长</h2>
@@ -40,6 +41,45 @@
     <footer class="footer">
       <p>© 2024 坤坤的主页</p>
     </footer>
+
+    <div class="modal" id="about-modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>关于坤坤</h2>
+        <div class="modal-body">
+          <img
+            src="images/your-animation.gif"
+            alt="坤坤照片"
+            class="modal-image"
+          />
+          <div class="info-grid">
+            <div class="info-item">
+              <h3>基本信息</h3>
+              <p>姓名：蔡徐坤</p>
+              <p>年龄：25岁</p>
+              <p>身份：练习生</p>
+            </div>
+            <div class="info-item">
+              <h3>特长</h3>
+              <p>✦ 唱歌</p>
+              <p>✦ 跳舞</p>
+              <p>✦ RAP</p>
+              <p>✦ 篮球</p>
+            </div>
+            <div class="info-item">
+              <h3>练习经历</h3>
+              <p>练习时长：两年半</p>
+              <p>主要作品：鸡你太美</p>
+            </div>
+            <div class="info-item">
+              <h3>个人简介</h3>
+              <p>音乐创作人、舞者、演员</p>
+              <p>热爱音乐和篮球</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
