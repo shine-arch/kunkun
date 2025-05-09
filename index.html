@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,27 +9,69 @@
   <body>
     <header class="hero">
       <h1 class="main-title">全民制作人你们好我是坤坤</h1>
-      <p class="subtitle">欢迎来到我的个人主页</p>
+      <p class="subtitle" role="description">欢迎来到我的个人主页</p>
     </header>
 
     <main class="content">
       <section class="animation-section">
-        <div class="animated-element"></div>
+        <div class="animated-element" aria-label="动画效果"></div>
       </section>
 
       <section class="info-section">
         <!-- 这里加了 id="about-me-card"，保持原样 -->
-        <div class="info-card" id="about-me-card">
-          <h2>关于我</h2>
+        <div
+          class="info-card"
+          id="about-me-card"
+          role="region"
+          aria-labelledby="about-title"
+        >
+          <h2 id="about-title">关于我</h2>
           <p>大家好，我是练习时长两年半的个人练习生</p>
-          <button class="read-more-btn">查看更多</button>
+          <button
+            class="read-more-btn"
+            data-target="#about-modal"
+            aria-controls="about-modal"
+            aria-expanded="false"
+          >
+            查看更多
+          </button>
         </div>
 
         <!-- 给特长卡片加上 id="skills-card" -->
-        <div class="info-card" id="skills-card">
-          <h2>特长</h2>
+        <div
+          class="info-card"
+          id="skills-card"
+          role="region"
+          aria-labelledby="skills-title"
+        >
+          <h2 id="skills-title">特长</h2>
           <p>唱、跳、rap、篮球</p>
-          <button class="read-more-btn">查看更多</button>
+          <button
+            class="read-more-btn"
+            data-target="#skills-modal"
+            aria-controls="skills-modal"
+            aria-expanded="false"
+          >
+            查看更多
+          </button>
+        </div>
+
+        <div
+          class="info-card"
+          id="photo-gallery-card"
+          role="region"
+          aria-labelledby="photo-gallery-title"
+        >
+          <h2 id="photo-gallery-title">照片合集</h2>
+          <p>点击查看坤坤的精彩照片合集</p>
+          <button
+            class="read-more-btn"
+            data-target="#photo-gallery-modal"
+            aria-controls="photo-gallery-modal"
+            aria-expanded="false"
+          >
+            查看照片
+          </button>
         </div>
       </section>
 
@@ -47,13 +89,20 @@
     </footer>
 
     <!-- 这是原本的关于我模态框 -->
-    <div class="modal" id="about-modal">
+    <div
+      class="modal"
+      id="about-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="about-modal-title"
+      aria-hidden="true"
+    >
       <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>关于坤坤</h2>
+        <span class="close-btn" aria-label="关闭模态框">&times;</span>
+        <h2 id="about-modal-title">关于坤坤</h2>
         <div class="modal-body">
           <img
-            src="images/your-animation.gif"
+            src="images/kun坤-photo.gif"
             alt="坤坤照片"
             class="modal-image"
           />
@@ -86,23 +135,114 @@
       </div>
     </div>
 
-    <div class="modal" id="skills-modal">
+    <div
+      class="modal"
+      id="skills-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="skills-modal-title"
+      aria-hidden="true"
+    >
       <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>坤坤打篮球 & 鸡你太美</h2>
+        <span class="close-btn" aria-label="关闭模态框">&times;</span>
+        <h2 id="skills-modal-title">坤坤打篮球 & 鸡你太美</h2>
         <div class="modal-body">
           <img
-            src="images/your-animation.gif"
+            src="images/kun坤-basketball.gif"
             alt="坤坤打篮球"
             style="width: 100%; border-radius: 10px; margin-bottom: 20px"
           />
-          <audio controls style="width: 100%">
+          <audio controls style="width: 100%" aria-label="播放作品音频">
             <source src="audio/jinitaimei.mp3" type="audio/mpeg" />
           </audio>
         </div>
       </div>
     </div>
 
+    <div
+      class="modal"
+      id="photo-gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="photo-gallery-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <span class="close-btn" aria-label="关闭模态框">&times;</span>
+        <h2 id="photo-gallery-modal-title">坤坤照片合集</h2>
+        <div class="modal-body">
+          <div class="photo-grid">
+            <img
+              src="images/photo1.jpg"
+              alt="坤坤照片1"
+              class="gallery-image"
+            />
+            <img
+              src="images/photo2.jpg"
+              alt="坤坤照片2"
+              class="gallery-image"
+            />
+            <img
+              src="images/photo3.jpg"
+              alt="坤坤照片3"
+              class="gallery-image"
+            />
+            <img
+              src="images/photo4.jpg"
+              alt="坤坤照片4"
+              class="gallery-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+      // JavaScript 代码用于打开和关闭模态框
+      document.addEventListener("DOMContentLoaded", function () {
+        const modalTriggers = document.querySelectorAll(".read-more-btn");
+        const closeButtons = document.querySelectorAll(".close-btn");
+        const modals = document.querySelectorAll(".modal");
+
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (event) {
+            event.preventDefault();
+            const modalId = trigger.getAttribute("data-target");
+            const modal = document.querySelector(modalId);
+            modal.style.display = "block";
+            trigger.setAttribute("aria-expanded", "true");
+          });
+        });
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const modal = button.closest(".modal");
+            modal.style.display = "none";
+            const trigger = document.querySelector(
+              `.read-more-btn[data-target="#${modal.id}"]`
+            );
+            if (trigger) {
+              trigger.setAttribute("aria-expanded", "false");
+            }
+          });
+        });
+
+        // 点击模态框外部关闭模态框
+        modals.forEach((modal) => {
+          modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              modal.style.display = "none";
+              const trigger = document.querySelector(
+                `.read-more-btn[data-target="#${modal.id}"]`
+              );
+              if (trigger) {
+                trigger.setAttribute("aria-expanded", "false");
+              }
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
